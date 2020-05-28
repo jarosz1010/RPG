@@ -1,11 +1,14 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 import javafx.scene.text.TextFlow;
 import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
 
 import javafx.event.ActionEvent;
+
+import Monster.*;
 
 public class Controller {
     @FXML
@@ -30,8 +33,11 @@ public class Controller {
     private Text DefInfo;
     @FXML
     private TextField Name;
+    @FXML
+    private TextArea fightLog;
 
     Player player = new Player();
+    Monster mon = new Goblin();
 
     @FXML
     protected void SubmitName(ActionEvent event) {
@@ -47,44 +53,49 @@ public class Controller {
         LvInfo.setText(Integer.toString(player.getLevel()));
         HPInfo.setText(Integer.toString(player.getHealth()));
         DefInfo.setText(Integer.toString(player.getDefense()));
-
     }
 
     @FXML
     protected void fight(ActionEvent event) {
         int winer = 0;
-//        while (winer == 0) {
-//            int monsterDamage = mon.attack(mon.getDiceCount(), mon.getDamage()) - player.getDefense();
-//            int playerDamage = player.attack();
-//            if (monsterDamage < 0) {
-//                monsterDamage = 0;
-//            }
-//            if (mon.getSpeed() > player.getClas().getSpeed()) {
-//                player.setHealth( player.getHealth() - monsterDamage);
-//                if (player.getHealth() <= 0) {
-//                    winer = 1;
-//                    break;
-//                }
-//                mon.setHealth( mon.getHealth() - playerDamage);
-//                if (mon.getHealth() <= 0) {
-//                    winer = 2;
-//                    break;
-//                }
-//            } else {
-//                mon.setHealth(mon.getHealth() - playerDamage);
-//                if (mon.getHealth() <= 0) {
-//                    winer = 2;
-//                    break;
-//                }
-//                player.setHealth(player.getHealth() - monsterDamage );
-//                if (player.getHealth() <= 0) {
-//                    winer = 1;
-//                    break;
-//                }
-//            }
-//
-//            System.out.println("Player damage:" + playerDamage + " current "+ mon.getName() +" health: "+ mon.getHealth());
-//            System.out.println( mon.getName() +" damage:" + monsterDamage + " current player health: "+ player.getHealth());
-//        }
+        while (winer == 0) {
+            int monsterDamage = mon.attack(mon.getDiceCount(), mon.getDamage()) - player.getDefense();
+            int playerDamage = player.attack();
+            if (monsterDamage < 0) {
+                monsterDamage = 0;
+            }
+            if (mon.getSpeed() > player.getSpeed()) {
+                player.setHealth( player.getHealth() - monsterDamage);
+                   // Animacja
+                if (player.getHealth() <= 0) {
+                    winer = 1;
+                    break;
+                }
+                mon.setHealth( mon.getHealth() - playerDamage);
+                   // Animacja
+                if (mon.getHealth() <= 0) {
+                    winer = 2;
+                    break;
+                }
+            } else {
+                mon.setHealth(mon.getHealth() - playerDamage);
+                  //  Animacja
+                if (mon.getHealth() <= 0) {
+                    winer = 2;
+                    break;
+                }
+                player.setHealth(player.getHealth() - monsterDamage );
+                  //  Animacja
+                if (player.getHealth() <= 0) {
+                    winer = 1;
+                    break;
+                }
+            }
+
+
+            fightLog.appendText("Player damage: " + playerDamage + " | current "+ mon.getName() +" health: "+ mon.getHealth() + "\n");
+            fightLog.appendText(mon.getName() +" damage: " + monsterDamage + " | current player health: "+ player.getHealth() + "\n");
+        }
+        mon = new Goblin();
     }
 }
