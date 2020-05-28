@@ -96,6 +96,46 @@ public class Controller {
             fightLog.appendText("Player damage: " + playerDamage + " | current "+ mon.getName() +" health: "+ mon.getHealth() + "\n");
             fightLog.appendText(mon.getName() +" damage: " + monsterDamage + " | current player health: "+ player.getHealth() + "\n");
         }
+        if (winer == 1){
+            //Okno YOU DIED
+            fightLog.appendText("\n");
+            fightLog.appendText("YOU DIED");
+
+        } else {
+            fightLog.appendText("\n");
+            fightLog.appendText(mon.getName() + " pokonany \n");
+            player.setExp(player.getExp() + mon.getExp());
+            if (player.getExp() >= player.nextLevel(player.getLevel())) {
+                player.levelUp();
+                fightLog.appendText("\n");
+                fightLog.appendText("LEVEL UP! \n");
+                printStat();
+            }else {
+                printStat();
+            }
+        }
+        winer = 0;
         mon = new Goblin();
+    }
+
+    @FXML
+    protected void heal(ActionEvent event){
+        Dice dice = new Dice();
+        if (player.getHealth() < player.getMaxHP())  {
+            player.setHealth(player.getHealth() + dice.roll(2,20));
+            printStat();
+        }
+    }
+
+    void printStat(){
+        EXPInfo.setText(Integer.toString(player.getExp()));
+        StrInfo.setText(Integer.toString(player.getStrenth()));
+        DexInfo.setText(Integer.toString(player.getDexterity()));
+        IntInfo.setText(Integer.toString(player.getInteligent()));
+        VitInfo.setText(Integer.toString(player.getVitallyty()));
+        SpeedInfo.setText(Integer.toString(player.getSpeed()));
+        LvInfo.setText(Integer.toString(player.getLevel()));
+        HPInfo.setText(Integer.toString(player.getHealth()));
+        DefInfo.setText(Integer.toString(player.getDefense()));
     }
 }

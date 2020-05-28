@@ -74,6 +74,7 @@
             <TextField fx:id="Name" />
             <Button mnemonicParsing="false" onAction="#SubmitName" text="Submit Name" />
             <Button mnemonicParsing="false" onAction="#fight" text="Fight" />
+            <Button mnemonicParsing="false" onAction="#heal" text="Heal" />
          </children></TextFlow>
    </children>
 </GridPane>
