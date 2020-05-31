@@ -70,9 +70,8 @@
       </ImageView>
       <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
          <children>
-            <TextArea fx:id="fightLog" prefHeight="150.0" prefWidth="300.0" editable="false" />
-            <TextField fx:id="Name" />
-            <Button mnemonicParsing="false" onAction="#SubmitName" text="Submit Name" />
+
+            <Button mnemonicParsing="false" onAction="#SubmitName" text="Zaczynamy" />
             <Button mnemonicParsing="false" onAction="#fight" text="Fight" />
             <Button mnemonicParsing="false" onAction="#heal" text="Heal" />
          </children></TextFlow>

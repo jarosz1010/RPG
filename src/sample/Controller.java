@@ -8,6 +8,8 @@ import javafx.scene.control.TextField;
 
 import javafx.event.ActionEvent;
 
+import javax.swing.*;
+
 import Monster.*;
 
 public class Controller {
@@ -43,8 +45,11 @@ public class Controller {
 
     @FXML
     protected void SubmitName(ActionEvent event) {
-        String imie = Name.getText();
-        player = new Player(imie);
+        //Okno dialogowe
+        JFrame frame = new JFrame("Podaj imie");
+        String name = JOptionPane.showInputDialog(frame, "Podaj swoje imie");
+
+        String imie = name;
         charakterInfo.setText(imie);
         EXPInfo.setText(Integer.toString(player.getExp()));
         StrInfo.setText(Integer.toString(player.getStrenth()));
