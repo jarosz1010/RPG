@@ -37,6 +37,8 @@ public class Controller {
     private TextField Name;
     @FXML
     private TextArea fightLog;
+    @FXML
+    private Text healCountInfo;
 
     Player player = new Player();
     Monster mon = new Goblin();
@@ -50,6 +52,7 @@ public class Controller {
         String name = JOptionPane.showInputDialog(frame, "Podaj swoje imie");
 
         String imie = name;
+        player = new Player(imie);
         charakterInfo.setText(imie);
         EXPInfo.setText(Integer.toString(player.getExp()));
         StrInfo.setText(Integer.toString(player.getStrenth()));
@@ -105,7 +108,7 @@ public class Controller {
         if (winer == 1){
             //Okno YOU DIED
             fightLog.appendText("\n");
-            fightLog.appendText("YOU DIED");
+            fightLog.appendText("YOU DIED\n");
 
         } else {
             fightLog.appendText("\n");
@@ -114,33 +117,34 @@ public class Controller {
             if (player.getExp() >= player.nextLevel(player.getLevel())) {
                 player.levelUp();
                 healcount = 3;
+                healCountInfo.setText(" You have "+ healcount + " heal potion");
                 fightLog.appendText("\n");
                 fightLog.appendText("LEVEL UP! \n");
                 printStat();
             }else {
                 printStat();
             }
+            winer = 0;
         }
-        winer = 0;
         mon = new Goblin();
     }
 
     @FXML
     protected void heal(ActionEvent event){
         Dice dice = new Dice();
-        if(winer != 1) {
+        if(winer == 1) {
+            fightLog.appendText("You can't heal, because you are dead\n");
+        } else {
             if (healcount > 0) {
                 if (player.getHealth() < player.getMaxHP())  {
                     player.setHealth(player.getHealth() + dice.roll(2,20));
                     printStat();
                     --healcount;
+                    healCountInfo.setText(" You have "+ healcount + " heal potion");
                 }
             } else {
                 fightLog.appendText("You can't heal\n");
             }
-
-        } else {
-            fightLog.appendText("You can't heal, because tou are dead\n");
         }
 
     }
