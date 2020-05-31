@@ -38,6 +38,8 @@ public class Controller {
 
     Player player = new Player();
     Monster mon = new Goblin();
+    int winer = 0;
+    int healcount =3;
 
     @FXML
     protected void SubmitName(ActionEvent event) {
@@ -57,7 +59,6 @@ public class Controller {
 
     @FXML
     protected void fight(ActionEvent event) {
-        int winer = 0;
         while (winer == 0) {
             int monsterDamage = mon.attack(mon.getDiceCount(), mon.getDamage()) - player.getDefense();
             int playerDamage = player.attack();
@@ -107,6 +108,7 @@ public class Controller {
             player.setExp(player.getExp() + mon.getExp());
             if (player.getExp() >= player.nextLevel(player.getLevel())) {
                 player.levelUp();
+                healcount = 3;
                 fightLog.appendText("\n");
                 fightLog.appendText("LEVEL UP! \n");
                 printStat();
@@ -121,10 +123,21 @@ public class Controller {
     @FXML
     protected void heal(ActionEvent event){
         Dice dice = new Dice();
-        if (player.getHealth() < player.getMaxHP())  {
-            player.setHealth(player.getHealth() + dice.roll(2,20));
-            printStat();
+        if(winer != 1) {
+            if (healcount > 0) {
+                if (player.getHealth() < player.getMaxHP())  {
+                    player.setHealth(player.getHealth() + dice.roll(2,20));
+                    printStat();
+                    --healcount;
+                }
+            } else {
+                fightLog.appendText("You can't heal\n");
+            }
+
+        } else {
+            fightLog.appendText("You can't heal, because tou are dead\n");
         }
+
     }
 
     void printStat(){
