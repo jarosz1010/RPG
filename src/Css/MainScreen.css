@@ -1,3 +1,23 @@
 .root{
     -fx-background-color: #383838
 }
+.button{
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+}
+.button-heal{
+    -fx-background-color: #008000;
+    -fx-text-fill: #FFFFFF;
+}
+.button-fight{
+    -fx-background-color: #FF0000;
+    -fx-text-fill: #FFFFFF;
+}
+.gridPane-stats{
+    -fx-background-color: #DCDCDC;
+}
+
+.text-cos{
+    -fx-background-color: #FF0000;
+    -fx-text-fill: #FFFFFF;
+}

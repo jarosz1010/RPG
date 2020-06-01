@@ -17,19 +17,19 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <GridPane prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="3">
+      <GridPane prefHeight="200.0" prefWidth="200.0" styleClass="gridPane-stats" GridPane.rowSpan="3">
          <children>
-            <Text text="Name: " />
+            <Text styleClass="text-cos" text="Name" />
             <Text fx:id="charakterInfo" text="" GridPane.columnIndex="2" />
             <Text text="EXP" GridPane.rowIndex="1" />
             <Text fx:id="EXPInfo" text="0" wrappingWidth="26.46875" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Text text="Strenth: " GridPane.rowIndex="2" />
+            <Text text="Strength" GridPane.rowIndex="2" />
             <Text fx:id="StrInfo" text="0" wrappingWidth="26.46875" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Text text="Dexterity" GridPane.rowIndex="3" />
             <Text fx:id="DexInfo" text="0" wrappingWidth="26.46875" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Text text="Inteligent" GridPane.rowIndex="4" />
+            <Text text="Intelligence" GridPane.rowIndex="4" />
             <Text fx:id="IntInfo" text="0" wrappingWidth="26.46875" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Text text="Vitallyty" GridPane.rowIndex="5" />
+            <Text text="Vitality" GridPane.rowIndex="5" />
             <Text fx:id="VitInfo" text="0" wrappingWidth="26.46875" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <Text text="Speed" GridPane.rowIndex="6" />
             <Text fx:id="SpeedInfo" text="0" wrappingWidth="26.46875" GridPane.columnIndex="2" GridPane.rowIndex="6" />
@@ -42,21 +42,21 @@
 
          </children>
          <columnConstraints>
-            <ColumnConstraints minWidth="80.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="80.0" />
             <ColumnConstraints />
-            <ColumnConstraints />
+            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
          </rowConstraints></GridPane>
       <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
          <image>
@@ -70,11 +70,11 @@
       </ImageView>
       <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
          <children>
-            <TextArea fx:id="fightLog" prefHeight="150.0" prefWidth="300.0" editable="false" />
+            <TextArea fx:id="fightLog" editable="false" prefHeight="150.0" prefWidth="300.0" />
             <Button mnemonicParsing="false" onAction="#SubmitName" text="Start Game" />
-            <Button mnemonicParsing="false" onAction="#fight" text="Fight" />
-            <Button mnemonicParsing="false" onAction="#heal" text="Heal" />
-            <Text fx:id="healCountInfo" text=" You have 3 heal potion"/>
+            <Button mnemonicParsing="false" onAction="#fight" styleClass="button-fight" text="Fight" />
+            <Button mnemonicParsing="false" onAction="#heal" styleClass="button-heal" text="Heal" />
+            <Text fx:id="healCountInfo" text=" You have 3 heal potion" />
          </children></TextFlow>
    </children>
 </GridPane>
