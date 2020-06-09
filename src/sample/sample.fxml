@@ -20,7 +20,7 @@
       <GridPane prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="3">
          <children>
             <Text text="Name: " />
-            <Text fx:id="charakterInfo" text="kolo" GridPane.columnIndex="2" />
+            <Text fx:id="charakterInfo" text="" GridPane.columnIndex="2" />
             <Text text="EXP" GridPane.rowIndex="1" />
             <Text fx:id="EXPInfo" text="0" wrappingWidth="26.46875" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Text text="Strenth: " GridPane.rowIndex="2" />
@@ -58,21 +58,23 @@
             <RowConstraints />
             <RowConstraints />
          </rowConstraints></GridPane>
-      <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+      <ImageView fx:id="Rycerz" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
          <image>
             <Image url="@../Image/knight.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+      <ImageView fx:id="Smok" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
          <image>
             <Image url="@../Image/dragon.png" />
          </image>
       </ImageView>
       <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
          <children>
-            <TextField fx:id="Name" />
-            <Button mnemonicParsing="false" onAction="#SubmitName" text="Submit Name" />
+            <TextArea fx:id="fightLog" prefHeight="150.0" prefWidth="300.0" editable="false" />
+            <Button mnemonicParsing="false" onAction="#SubmitName" text="Start Game" />
             <Button mnemonicParsing="false" onAction="#fight" text="Fight" />
+            <Button mnemonicParsing="false" onAction="#heal" text="Heal" />
+            <Text fx:id="healCountInfo" text=" You have 3 heal potion"/>
          </children></TextFlow>
    </children>
 </GridPane>
