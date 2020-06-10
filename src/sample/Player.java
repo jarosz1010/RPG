@@ -8,7 +8,7 @@ public class Player {
     private String name;
     private int level;
     private int health;
-    private int maxHP=100;
+    private int maxHP=50;
     private int Strenth;
     private int Dexterity;
     private int Inteligent;
@@ -85,6 +85,7 @@ public class Player {
     public int getDefense() {
         return Defense;
     }
+    public int getMaxHP() { return maxHP; }
 
     public void setExp(int exp) {
         this.exp = exp;
@@ -139,17 +140,14 @@ public class Player {
     }
 
     public void levelUp(){
-        System.out.println(this.exp);
-        System.out.println(this.level);
-        System.out.println(nextLevel(this.level));
         this.exp -= nextLevel(this.level);
         level += 1;
         this.setStrenth(this.getStrenth()+ 4);
         this.setInteligent(this.getInteligent()+ 2);
         this.setDexterity(this.getDexterity() +1);
         this.setVitallyty(this.getVitallyty()+5);
-        this.maxHP += 50;
-        this.health = this.maxHP + this.getVitallyty()/2;
-        this.Defense = this.getDefense()/4;
+        this.maxHP += 5;
+        this.health = this.health + (int) (0.04 * (this.level^3)+0.8*(this.level^2)+ 2*level);
+        this.Defense += this.getDefense()/4;
     }
 }
