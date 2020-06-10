@@ -51,6 +51,7 @@ public class Controller {
     Monster mon = new Goblin();
     int winer = 0;
     int healcount =3;
+
     @FXML
     private ImageView Rycerz;
     @FXML
@@ -122,7 +123,6 @@ public class Controller {
 
     @FXML
     protected void fight(ActionEvent event) {
-        Change_Image();
         while (winer == 0) {
             int monsterDamage = mon.attack(mon.getDiceCount(), mon.getDamage()) - player.getDefense();
             int playerDamage = player.attack();
