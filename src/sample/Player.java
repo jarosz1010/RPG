@@ -134,10 +134,10 @@ public class Player {
     }
     void animation_Attack(ImageView Player_IV){
 
-        Image play1 = new Image(getClass().getResourceAsStream("/Image/Player_walka/play_fig.jpg"));
-        Image play2 = new Image(getClass().getResourceAsStream("/Image/Player_walka/play_fig2.jpg"));
-        Image play3 = new Image(getClass().getResourceAsStream("/Image/Player_walka/play_fig3.jpg"));
-        Image play4 = new Image(getClass().getResourceAsStream("/Image/Player_walka/play_fig4.jpg"));
+        Image play1 = new Image(getClass().getResourceAsStream("/Image/Player_walka_2/play_fig.png"));
+        Image play2 = new Image(getClass().getResourceAsStream("/Image/Player_walka_2/play_fig2.png"));
+        Image play3 = new Image(getClass().getResourceAsStream("/Image/Player_walka_2/play_fig3.png"));
+        Image play4 = new Image(getClass().getResourceAsStream("/Image/Player_walka_2/play_fig4.png"));
         Image[] playery = {play1, play2, play3, play4};
 
         Timeline timeLine = new Timeline();
@@ -155,11 +155,11 @@ public class Player {
     }
 
     void animation_Fall(ImageView Player_IV){
-        Image play1 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall.jpg"));
-        Image play2 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall2.jpg"));
-        Image play3 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall3.jpg"));
-        Image play4 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall4.jpg"));
-        Image play5 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall5.jpg"));
+        Image play1 = new Image(getClass().getResourceAsStream("/Image/Player_upadek_2/play_fall.png"));
+        Image play2 = new Image(getClass().getResourceAsStream("/Image/Player_upadek_2/play_fall2.png"));
+        Image play3 = new Image(getClass().getResourceAsStream("/Image/Player_upadek_2/play_fall3.png"));
+        Image play4 = new Image(getClass().getResourceAsStream("/Image/Player_upadek_2/play_fall4.png"));
+        Image play5 = new Image(getClass().getResourceAsStream("/Image/Player_upadek_2/play_fall5.png"));
 
         Image[] playery_fall = {play1, play2, play3, play4, play5};
 

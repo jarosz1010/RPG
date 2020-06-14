@@ -60,12 +60,12 @@ public class Goblin implements Monster {
 
 
     public void animation_Attack(ImageView Monster_IV){
-        Image gob1 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka/gob_fig.jpg"));
-        Image gob2 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka/gob_fig2.jpg"));
-        Image gob3 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka/gob_fig3.jpg"));
-        Image gob4 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka/gob_fig4.jpg"));
-        Image gob5 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka/gob_fig5.jpg"));
-        Image gob6 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka/gob_fig6.jpg"));
+        Image gob1 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka_2/gob_fig.png"));
+        Image gob2 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka_2/gob_fig2.png"));
+        Image gob3 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka_2/gob_fig3.png"));
+        Image gob4 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka_2/gob_fig4.png"));
+        Image gob5 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka_2/gob_fig5.png"));
+        Image gob6 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka_2/gob_fig6.png"));
         Image[] gobliny = {gob1, gob2, gob3, gob4, gob5, gob6};
 
         Timeline goblin_attack = new Timeline();
@@ -83,12 +83,12 @@ public class Goblin implements Monster {
     }
 
     public void animation_Fall(ImageView Monster_IV){
-        Image gob1 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek/gob_fall.jpg"));
-        Image gob2 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek/gob_fall2.jpg"));
-        Image gob3 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek/gob_fall3.jpg"));
-        Image gob4 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek/gob_fall4.jpg"));
-        Image gob5 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek/gob_fall5.jpg"));
-        Image gob6 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek/gob_fall6.jpg"));
+        Image gob1 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek_2/gob_fall.png"));
+        Image gob2 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek_2/gob_fall2.png"));
+        Image gob3 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek_2/gob_fall3.png"));
+        Image gob4 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek_2/gob_fall4.png"));
+        Image gob5 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek_2/gob_fall5.png"));
+        Image gob6 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek_2/gob_fall6.png"));
 
         Image[] gobliny_fall = {gob1, gob2, gob3, gob4, gob5, gob6};
 

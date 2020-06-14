@@ -60,12 +60,12 @@
          </rowConstraints></GridPane>
       <ImageView fx:id="Player_IV" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
          <image>
-            <Image url="@../Image/Player_walka/play_fig.jpg" />
+            <Image url="@../Image/Player_walka_2/play_fig.png" />
          </image>
       </ImageView>
       <ImageView fx:id="Monster_IV" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
          <image>
-            <Image url="@../Image/Goblin_walka/gob_fig.jpg" />
+            <Image url="@../Image/Goblin_walka_2/gob_fig.png" />
          </image>
       </ImageView>
       <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
