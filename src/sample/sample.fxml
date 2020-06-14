@@ -70,11 +70,20 @@
       </ImageView>
       <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
          <children>
-            <TextArea fx:id="fightLog" editable="false" prefHeight="150.0" prefWidth="300.0" />
-            <Button mnemonicParsing="false" onAction="#SubmitName" text="Start Game" />
-            <Button mnemonicParsing="false" onAction="#fight" styleClass="button-fight" text="Fight" />
-            <Button mnemonicParsing="false" onAction="#heal" styleClass="button-heal" text="Heal" />
-            <Text fx:id="healCountInfo" text=" You have 3 heal potion" />
+            <TextArea fx:id="fightLog" editable="false" prefHeight="149.0" prefWidth="410.0" />
+            <Button mnemonicParsing="false" onAction="#SubmitName" prefHeight="80.0" prefWidth="80.0" text="Start Game" />
+            <Button mnemonicParsing="false" onAction="#fight" prefHeight="80.0" prefWidth="80.0" styleClass="button-fight" text="Fight" />
+            <Button mnemonicParsing="false" onAction="#heal" prefHeight="80.0" prefWidth="80.0" styleClass="button-heal" text="Heal" />
+<!--            <Text fx:id="healCountInfo" text=" You have 3 heal potion" />-->
+            <ImageView fx:id="Potion1" fitHeight="40" fitWidth="40">
+               <Image url="@../Image/potion.png"/>
+            </ImageView>
+            <ImageView fx:id="Potion2" fitHeight="40" fitWidth="40">
+               <Image url="@../Image/potion.png"/>
+            </ImageView>
+            <ImageView fx:id="Potion3" fitHeight="40" fitWidth="40">
+               <Image url="@../Image/potion.png"/>
+            </ImageView>
          </children></TextFlow>
    </children>
 </GridPane>

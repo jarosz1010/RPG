@@ -33,7 +33,7 @@ public class Main extends Application {
         GridPane ScreenBox = Screen.load();
 
 
-        Scene MainScreen = new Scene(ScreenBox, 600, 400);
+        Scene MainScreen = new Scene(ScreenBox, 1000, 600);
         MainScreen.getStylesheets().add("Css/MainScreen.css");
         window.setScene(MainScreen);
         window.show();

@@ -46,7 +46,12 @@ public class Controller {
     @FXML
     private TextArea fightLog;
     @FXML
-    private Text healCountInfo;
+    private ImageView Potion1;
+    @FXML
+    private ImageView Potion2;
+    @FXML
+    private ImageView Potion3;
+  //  private Text healCountInfo;
 
     Player player = new Player();
     Monster mon = new Goblin();
@@ -224,7 +229,10 @@ public class Controller {
             if (player.getExp() >= player.nextLevel(player.getLevel())) {
                 player.levelUp();
                 healcount = 3;
-                healCountInfo.setText(" You have "+ healcount + " heal potion");
+               // healCountInfo.setText(" You have "+ healcount + " heal potion");
+                Potion1.setVisible(true);
+                Potion2.setVisible(true);
+                Potion3.setVisible(true);
                 fightLog.appendText("\n");
                 fightLog.appendText("LEVEL UP! \n");
                 printStat();
@@ -247,7 +255,15 @@ public class Controller {
                     player.setHealth(player.getHealth() + dice.roll(2,20));
                     printStat();
                     --healcount;
-                    healCountInfo.setText(" You have "+ healcount + " heal potion");
+                    if(healcount==2) {
+                        Potion3.setVisible(false);
+                    }else if(healcount==1){
+                        Potion2.setVisible(false);
+                    }else if(healcount==0){
+                        Potion1.setVisible(false);
+                    }
+
+                   // healCountInfo.setText(" You have "+ healcount + " heal potion");
                 }
             } else {
                 fightLog.appendText("You can't heal\n");
