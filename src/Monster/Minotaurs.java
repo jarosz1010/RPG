@@ -1,5 +1,7 @@
 package Monster;
 
+import javafx.scene.image.ImageView;
+
 import java.util.Random;
 
 public class Minotaurs implements Monster{
@@ -20,6 +22,16 @@ public class Minotaurs implements Monster{
     @Override
     public String getName() {
         return "Minotaurs";
+    }
+
+    @Override
+    public void animation_Attack(ImageView Monster_IV) {
+
+    }
+
+    @Override
+    public void animation_Fall(ImageView Monster_IV) {
+
     }
 
     @Override

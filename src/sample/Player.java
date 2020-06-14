@@ -1,5 +1,13 @@
 package sample;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+
+import java.util.Collection;
 import java.util.Random;
 
 
@@ -17,6 +25,7 @@ public class Player {
     private int dice;
     private int diceCount;
     private int Defense;
+
 
 
     public Player(String name) {
@@ -123,7 +132,51 @@ public class Player {
     public void setDefense(int defense) {
         Defense = defense;
     }
+    void animation_Attack(ImageView Player_IV){
 
+        Image play1 = new Image(getClass().getResourceAsStream("/Image/Player_walka/play_fig.jpg"));
+        Image play2 = new Image(getClass().getResourceAsStream("/Image/Player_walka/play_fig2.jpg"));
+        Image play3 = new Image(getClass().getResourceAsStream("/Image/Player_walka/play_fig3.jpg"));
+        Image play4 = new Image(getClass().getResourceAsStream("/Image/Player_walka/play_fig4.jpg"));
+        Image[] playery = {play1, play2, play3, play4};
+
+        Timeline timeLine = new Timeline();
+        Collection<KeyFrame> frames = timeLine.getKeyFrames();
+        Duration frameGap = Duration.millis(100);
+        Duration frameTime = Duration.ZERO ;
+
+        for (Image img2 : playery) {
+            frameTime = frameTime.add(frameGap);
+            frames.add(new KeyFrame(frameTime, e -> Player_IV.setImage(img2)));
+        }
+        timeLine.setCycleCount(1);
+
+        timeLine.play();
+    }
+
+    void animation_Fall(ImageView Player_IV){
+        Image play1 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall.jpg"));
+        Image play2 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall2.jpg"));
+        Image play3 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall3.jpg"));
+        Image play4 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall4.jpg"));
+        Image play5 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall5.jpg"));
+
+        Image[] playery_fall = {play1, play2, play3, play4, play5};
+
+        Timeline player_fall = new Timeline();
+        Collection<KeyFrame> fall_frame = player_fall.getKeyFrames();
+
+        Duration fall_frameGap = Duration.millis(100);
+        Duration fall_frameTime = Duration.ZERO ;
+
+        for (Image img2 : playery_fall) {
+            fall_frameTime = fall_frameTime.add(fall_frameGap);
+            fall_frame.add(new KeyFrame(fall_frameTime, e -> Player_IV.setImage(img2)));
+        }
+        player_fall.setCycleCount(1);
+
+        player_fall.play();
+    }
     int attack(){
         Random rand = new Random();
         Dice dice = new Dice();

@@ -82,95 +82,6 @@ public class Controller {
         DefInfo.setText(Integer.toString(player.getDefense()));
     }
 
-    public void Goblin_upadek() {
-        int i = 0;
-
-        Image gob1 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek/gob_fall.jpg"));
-        Image gob2 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek/gob_fall2.jpg"));
-        Image gob3 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek/gob_fall3.jpg"));
-        Image gob4 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek/gob_fall4.jpg"));
-        Image gob5 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek/gob_fall5.jpg"));
-        Image gob6 = new Image(getClass().getResourceAsStream("/Image/Goblin_upadek/gob_fall6.jpg"));
-
-
-        Image play1 = new Image(getClass().getResourceAsStream("/Image/Player_walka/play_fig.jpg"));
-        Image play2 = new Image(getClass().getResourceAsStream("/Image/Player_walka/play_fig2.jpg"));
-        Image play3 = new Image(getClass().getResourceAsStream("/Image/Player_walka/play_fig3.jpg"));
-        Image play4 = new Image(getClass().getResourceAsStream("/Image/Player_walka/play_fig4.jpg"));
-        Image[] gobliny = {gob1, gob2, gob3, gob4, gob5, gob6};
-        Image[] playery = {play1, play2, play3, play4};
-
-        Timeline timeLine = new Timeline();
-        Collection<KeyFrame> frames = timeLine.getKeyFrames();
-        Timeline timeLine2 = new Timeline();
-        Collection<KeyFrame> frames2 = timeLine.getKeyFrames();
-        Duration frameGap = Duration.millis(100);
-        Duration frameTime = Duration.ZERO ;
-        Duration frameGap2 = Duration.millis(125);
-        Duration frameTime2 = Duration.ZERO ;
-
-        for (Image img : gobliny) {
-            frameTime = frameTime.add(frameGap);
-            frames.add(new KeyFrame(frameTime, e -> Monster_IV.setImage(img)));
-        }
-        for (Image img2 : playery) {
-            frameTime2 = frameTime2.add(frameGap2);
-            frames2.add(new KeyFrame(frameTime2, e -> Player_IV.setImage(img2)));
-        }
-        timeLine.setCycleCount(1);
-
-        timeLine.play();
-        timeLine2.setCycleCount(1);
-
-        timeLine2.play();
-
-
-    }
-
-    public void Goblin_walka() {
-        int i = 0;
-
-        Image gob1 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka/gob_fig.jpg"));
-        Image gob2 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka/gob_fig2.jpg"));
-        Image gob3 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka/gob_fig3.jpg"));
-        Image gob4 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka/gob_fig4.jpg"));
-        Image gob5 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka/gob_fig5.jpg"));
-        Image gob6 = new Image(getClass().getResourceAsStream("/Image/Goblin_walka/gob_fig6.jpg"));
-
-        Image play1 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall.jpg"));
-        Image play2 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall2.jpg"));
-        Image play3 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall3.jpg"));
-        Image play4 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall4.jpg"));
-        Image play5 = new Image(getClass().getResourceAsStream("/Image/Player_upadek/play_fall5.jpg"));
-        Image[] gobliny = {gob1, gob2, gob3, gob4, gob5, gob6};
-        Image[] playery = {play1, play2, play3, play4, play5};
-
-        Timeline timeLine = new Timeline();
-        Collection<KeyFrame> frames = timeLine.getKeyFrames();
-        Timeline timeLine2 = new Timeline();
-        Collection<KeyFrame> frames2 = timeLine.getKeyFrames();
-        Duration frameGap = Duration.millis(100);
-        Duration frameTime = Duration.ZERO ;
-        Duration frameGap2 = Duration.millis(100);
-        Duration frameTime2 = Duration.ZERO ;
-
-        for (Image img : gobliny) {
-            frameTime = frameTime.add(frameGap);
-            frames.add(new KeyFrame(frameTime, e -> Monster_IV.setImage(img)));
-        }
-        for (Image img2 : playery) {
-            frameTime2 = frameTime2.add(frameGap2);
-            frames2.add(new KeyFrame(frameTime2, e -> Player_IV.setImage(img2)));
-        }
-        timeLine.setCycleCount(1);
-
-        timeLine.play();
-        timeLine2.setCycleCount(1);
-
-        timeLine2.play();
-
-    }
-
     @FXML
     protected void fight(ActionEvent event) {
 
@@ -181,32 +92,40 @@ public class Controller {
                 monsterDamage = 0;
             }
             if (mon.getSpeed() > player.getSpeed()) {
-                Goblin_walka();
+
                 player.setHealth( player.getHealth() - monsterDamage);
 
                 if (player.getHealth() <= 0) {
+                    mon.animation_Attack(Monster_IV);
+                    player.animation_Fall(Player_IV);
                     winer = 1;
                     break;
                 }
                 mon.setHealth( mon.getHealth() - playerDamage);
 
                 if (mon.getHealth() <= 0) {
+                    mon.animation_Fall(Monster_IV);
+                    player.animation_Attack(Player_IV);
                     winer = 2;
                     break;
                 }
 
 
             } else {
-                Goblin_upadek();
+
                 mon.setHealth(mon.getHealth() - playerDamage);
 
                 if (mon.getHealth() <= 0) {
+                    mon.animation_Fall(Monster_IV);
+                    player.animation_Attack(Player_IV);
                     winer = 2;
                     break;
                 }
                 player.setHealth(player.getHealth() - monsterDamage );
             
                 if (player.getHealth() <= 0) {
+                    mon.animation_Attack(Monster_IV);
+                    player.animation_Fall(Player_IV);
                     winer = 1;
                     break;
                 }

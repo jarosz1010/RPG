@@ -1,5 +1,7 @@
 package Monster;
 
+import javafx.scene.image.ImageView;
+
 import java.util.Random;
 
 public class Skeleton implements Monster {
@@ -25,6 +27,16 @@ public class Skeleton implements Monster {
     @Override
     public int getExp() {
         return 4;
+    }
+
+    @Override
+    public void animation_Attack(ImageView Monster_IV) {
+
+    }
+
+    @Override
+    public void animation_Fall(ImageView Monster_IV) {
+
     }
 
     public void setHealth(int value) {
